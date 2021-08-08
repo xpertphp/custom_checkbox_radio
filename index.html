@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Customize the label */
+label {
+ display: block;
+ position: relative;
+ padding-left: 35px;
+ margin-bottom: 12px;
+ cursor: pointer;
+ font-size: 22px;
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+}
+ 
+/* Hide default checkbox */
+label input {
+ position: absolute;
+ opacity: 0;
+ cursor: pointer;
+ height: 0;
+ width: 0;
+}
+ 
+/* Create a custom checkbox container */
+.checkmark {
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 25px;
+ width: 25px;
+ background-color: #359900;
+}
+
+/* Add border radius for the radio button */
+.circle {
+ border-radius: 50%;
+}
+/* On mouse-over, add a background color */
+label:hover input ~ .checkmark {
+ background-color: #ccc;
+}
+ 
+/* When the checkbox is checked, add a blue background */
+label input:checked ~ .checkmark {
+ background-color: #359900;
+}
+ 
+/* Create the checkmark/circle (hidden when not checked) */
+.checkmark:after {
+ content: "";
+ position: absolute;
+ display: none;
+}
+ 
+/* Show the checkmark when checked */
+label input:checked ~ .checkmark:after {
+ display: block;
+}
+ 
+/* Style the checkmark */
+label .checkmark:after {
+ left: 10px;
+ top: 3px;
+ width: 5px;
+ height: 15px;
+ border: solid white;
+ border-width: 0 3px 3px 0;
+ -webkit-transform: rotate(45deg);
+ -ms-transform: rotate(45deg);
+ transform: rotate(45deg);
+}
+/* Style the radio button circle */
+label .circle:after {
+ width: 15px;
+ height: 15px;
+ /* since .circle and .checkmark are technically the same element, we have to set border none otherwise an unwanted checkmark will show up on screen */
+ border: none;
+ background: white;
+ border-radius: 50%;
+ left: 20%;
+ top: 20%;
+}
+ </style>
+ 
+</head>
+ <body>
+   <h2>Checkbox Example</h2>
+   <label class="input">Apple
+     <input type="checkbox" name="chkFruit" checked />
+     <span class="checkmark"></span>
+   </label>
+
+   <label class="input">Mango
+     <input type="checkbox" name="chkFruit" />
+     <span class="checkmark"></span>
+   </label>
+
+   <label class="input">Banana
+     <input type="checkbox" name="chkFruit" />
+     <span class="checkmark"></span>
+   </label>
+   
+   <h2>CSS Radio Button Example</h2>
+   <label class="input">BMW
+     <input type="radio" name="rdoBtn" checked>
+     <span class="checkmark circle"></span>
+   </label>
+ 
+   <label class="input">Audi
+     <input type="radio" name="rdoBtn">
+     <span class="checkmark circle"></span>
+   </label>
+ 
+   <label class="input">Ferrari
+     <input type="radio" name="rdoBtn">
+     <span class="checkmark circle"></span>
+   </label>
+ </body>
+</html>
